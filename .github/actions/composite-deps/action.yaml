@@ -4,17 +4,19 @@ inputs:
     required: true
   NODE_VERSION:
     required: true
-working-directory: ${{inputs.WORK_DIR}}
 runs:
   using: composite
   steps:
     - name: Setup Node
       uses: actions/setup-node@v4
+      working-directory: ${{inputs.WORK_DIR}}
       with:
         node-version: ${{inputs.NODE_VERSION}}
     - name: Install Dependencies
       run: npm ci
+      working-directory: ${{inputs.WORK_DIR}}
       shell: bash
     - name: Run Unit Tests
       run: npm run test
+      working-directory: ${{inputs.WORK_DIR}}
       shell: bash
