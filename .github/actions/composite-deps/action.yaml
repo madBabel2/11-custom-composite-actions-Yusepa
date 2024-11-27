@@ -4,9 +4,9 @@ inputs:
     required: true
   NODE_VERSION:
     required: true
+working-directory: ${{inputs.WORK_DIR}}
 runs:
   using: composite
-  working-directory: ${{inputs.WORK_DIR}}
   steps:
     - name: Setup Node
       uses: actions/setup-node@v4
