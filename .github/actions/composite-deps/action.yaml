@@ -1,0 +1,16 @@
+name: aciones composite
+inputs:
+  WORK_DIR:
+  NODE_VERSION:
+runs:
+  using: composite
+  working-directory: ${{inputs.WORK_DIR}}
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{inputs.NODE_VERSION}}
+    - name: Install Dependencies
+      run: npm ci
+    - name: Run Unit Tests
+      run: npm run test
