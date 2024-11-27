@@ -15,11 +15,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Build Node
+        uses: ./.github/actions/composite-deps/action.yaml
         with:
-          node-version: ${{env.NODE_VERSION}}
-      - name: Install Dependencies
-        run: npm ci
-      - name: Run Unit Tests
-        run: npm run test
+          WORK_DIR: ${{env.WORK_DIR}}
+          NODE_VERSION: ${{env.NODE_VERSION}}
