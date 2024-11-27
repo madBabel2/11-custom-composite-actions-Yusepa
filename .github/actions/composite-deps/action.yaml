@@ -1,7 +1,9 @@
 name: aciones composite
 inputs:
   WORK_DIR:
+    required: true
   NODE_VERSION:
+    required: true
 runs:
   using: composite
   working-directory: ${{inputs.WORK_DIR}}
@@ -12,5 +14,7 @@ runs:
         node-version: ${{inputs.NODE_VERSION}}
     - name: Install Dependencies
       run: npm ci
+      shell: bash
     - name: Run Unit Tests
       run: npm run test
+      shell: bash
