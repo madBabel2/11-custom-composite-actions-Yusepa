@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
       - name: Build Node
-        uses: ./.github/actions/composite-deps/
+        uses: ./.github/actions/composite-deps
         with:
           WORK_DIR: ${{env.WORK_DIR}}
           NODE_VERSION: ${{env.NODE_VERSION}}
